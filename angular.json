@@ -8,7 +8,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "defaultAngularProject": {
+    "chuckNorrisJokeGenerator": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -26,9 +26,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ]
+            "styles": ["src/styles.css"]
           },
           "configurations": {
             "production": {
@@ -58,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "defaultAngularProject:build:production"
+              "buildTarget": "chuckNorrisJokeGenerator:build:production"
             },
             "development": {
-              "buildTarget": "defaultAngularProject:build:development"
+              "buildTarget": "chuckNorrisJokeGenerator:build:development"
             }
           },
           "defaultConfiguration": "development"

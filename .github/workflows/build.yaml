@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24.14.0'
-      - run: npm build
+      - run: npm run build
 
   test:
     runs-on: ubuntu-latest
@@ -36,4 +36,4 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24.14.0'
-      - run: npm test
+      - run: npm run test

@@ -1,9 +1,12 @@
 {
   "name": "@michahell/fv-chuck-norris-joke-generator",
   "version": "0.0.1",
-  "repository": "https://github.com/michahell/fv-chuck-norris-generator",
-  "config" : {
-    "proxyUrl" : "https://api.chucknorris.io/"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michahell/fv-chuck-norris-generator.git"
+  },
+  "config": {
+    "proxyUrl": "https://api.chucknorris.io/"
   },
   "scripts": {
     "ng": "ng",

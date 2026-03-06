@@ -9,7 +9,6 @@ import {JokeViewModel} from '../../services/jokes.model';
 })
 export class Joke {
   joke = input.required<JokeViewModel>();
-
   isFavourite = computed<boolean>(() => this.joke().isFavourite);
   favourited = output<boolean>();
 

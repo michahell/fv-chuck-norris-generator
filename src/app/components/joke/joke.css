@@ -1,0 +1,9 @@
+:host {
+  display: block;
+  opacity: 1;
+  transition: all linear;
+
+  @starting-style {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,2 @@
+export const JOKE_REFRESH_RATE_SECONDS = 10000;
+export const JOKE_MAX_FAVOURITES = 10;

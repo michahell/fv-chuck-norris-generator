@@ -1,12 +1,14 @@
 import { TestBed } from '@angular/core/testing';
-import { JokeFacade, JOKE_REFRESH_RATE_SECONDS } from './joke-facade';
+import { JokeFacade } from './joke-facade';
 import { JokeService } from './joke-service';
 import { of } from 'rxjs';
 import { JokeApiResponse, JokeViewModel } from './jokes.model';
 import { vi } from 'vitest';
+import {JOKE_REFRESH_RATE_SECONDS} from '../app.constants';
 
 describe('JokeFacade', () => {
   let facade: JokeFacade;
+  // eslint-disable-next-line
   let jokeServiceMock: any;
 
   const mockJokeApiResponse: JokeApiResponse = {

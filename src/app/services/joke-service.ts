@@ -20,7 +20,7 @@ export class JokeService {
     return this.#http.get<JokeApiResponse>(`${this.#corsProxiedBaseUrl}/jokes/random`).pipe(
       map((response: JokeApiResponse) => response),
       catchError((error) => {
-        // console.error('Error fetching joke:', error);
+        console.error('Error fetching joke:', error);
         throw new Error('Failed to fetch joke. Please try again.');
       })
     );

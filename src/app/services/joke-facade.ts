@@ -2,9 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {BehaviorSubject, exhaustMap, map, Observable, Subscription, tap, timer, withLatestFrom} from 'rxjs';
 import {JokeService} from './joke-service';
 import {JokeApiResponse, JokeViewModel} from './jokes.model';
-
-export const JOKE_REFRESH_RATE_SECONDS = 2000;
-export const JOKE_LIST_SIZE = 10;
+import {JOKE_MAX_FAVOURITES, JOKE_REFRESH_RATE_SECONDS} from '../app.constants';
 
 @Injectable({
   providedIn: 'root',
@@ -64,7 +62,7 @@ export class JokeFacade {
   }
 
   getNumFavourites(): number {
-    return this.#jokeListState.getValue().reduce((numFavourites, joke) => numFavourites + (joke.isFavourite ? 1 : 0), 0);
+    return this.#favouriteListState.getValue().reduce((numFavourites, joke) => numFavourites + (joke.isFavourite ? 1 : 0), 0);
   }
 
   #createViewModel(joke: JokeApiResponse): JokeViewModel {
@@ -78,7 +76,7 @@ export class JokeFacade {
   #mapToViewModel(list: JokeViewModel[]): JokeViewModel[] {
     return list.map((joke, index, allJokes) => ({
       ...joke,
-      visibleInStream: index >= (allJokes.length - JOKE_LIST_SIZE)
+      visibleInStream: index >= (allJokes.length - JOKE_MAX_FAVOURITES)
     }));
   }
 

@@ -9,6 +9,7 @@ import { By } from '@angular/platform-browser';
 describe('Favourites', () => {
   let component: Favourites;
   let fixture: ComponentFixture<Favourites>;
+  // eslint-disable-next-line
   let facadeMock: any;
   let favouritesSubject: BehaviorSubject<JokeViewModel[]>;
 

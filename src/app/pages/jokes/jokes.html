@@ -25,6 +25,8 @@
       <app-joke
         [joke]="joke"
         (favourited)="onFavourite(joke, $event)"
+        animate.enter="entering"
+        [animate.leave]="preventAnimationOnDestroy() ? '' : 'leaving'"
       ></app-joke>
     }
   } @empty {

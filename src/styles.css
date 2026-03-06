@@ -2,3 +2,49 @@
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark, dim;
 }
+
+@keyframes slide-fade-in {
+  0% {
+    opacity: 0;
+    transform: translate(200px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes slide-fade-out {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(200px, 0);
+  }
+}
+
+@keyframes squashed {
+  0% {
+    transform: scaleY(1);
+    height: 64px;
+  }
+  100% {
+    transform: scaleY(0);
+    height: 0;
+  }
+}
+
+:host {
+  display: block;
+}
+
+.entering {
+  animation: slide-fade-in 500ms;
+}
+
+.leaving {
+  animation: squashed 500ms;
+}
+

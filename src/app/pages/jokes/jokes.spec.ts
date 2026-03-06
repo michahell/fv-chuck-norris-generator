@@ -1,14 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import Jokes from './jokes';
 import { JokeFacade } from '../../services/joke-facade';
-import { BehaviorSubject } from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
 import { JokeViewModel } from '../../services/jokes.model';
-import { vi } from 'vitest';
+import {vi} from 'vitest';
 import { By } from '@angular/platform-browser';
 
 describe('Jokes', () => {
   let component: Jokes;
   let fixture: ComponentFixture<Jokes>;
+  // eslint-disable-next-line
   let facadeMock: any;
   let latestJokesSubject: BehaviorSubject<JokeViewModel[]>;
 
@@ -88,7 +89,8 @@ describe('Jokes', () => {
 
     // Mock the modal
     const mockModal = { showModal: vi.fn() };
-    vi.spyOn(document, 'getElementById').mockReturnValue(mockModal as any);
+    // @ts-expect-error mockModal does not equal HTMLElement
+    vi.spyOn(document, 'getElementById').mockReturnValue(mockModal);
 
     component.onFavourite(mockJoke, true);
 

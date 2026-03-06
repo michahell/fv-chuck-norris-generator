@@ -1,0 +1,36 @@
+name: prepare release
+
+on:
+  push:
+    branches: [ 'release' ]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.14.0'
+      - run: npm install
+      - run: npm run test
+      - run: npm run build
+      - name: create new tag
+        run: |
+          # use npm version to update version in package.json
+          npm version minor
+          # setup local git config user and e-mail
+          git config --local user.email "action@github.com"
+          git config --local user.name "release workflow action"
+          # read package.json and print version
+          VERSION=$(node -p "require('./package.json').version")
+          # store in github env
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          # tag
+          git tag -a "v${{ env.VERSION }}" -m "release v${{ env.VERSION }}"
+          # push tag
+          git push origin "v${{ env.VERSION }}"

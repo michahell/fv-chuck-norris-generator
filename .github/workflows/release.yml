@@ -1,20 +1,19 @@
 name: release
 
 on:
-  push:
-    tags:
-      - '*'
+  workflow_run:
+    workflows: [ prepare release ]
+    types:
+      - completed
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  create-release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-      - name: Release
-        uses: softprops/action-gh-release@v2
+      - uses: actions/checkout@v6
+      - uses: softprops/action-gh-release@v2
         with:
           files: './dist/chuckNorrisJokeGenerator/browser/**/*'

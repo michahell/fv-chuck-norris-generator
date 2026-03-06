@@ -1,13 +1,15 @@
 # Chuck Norris Joke Generator
 
-### Time spent
-thu 05-03 11:00 - 13:00 <br/> 2h build workflow, create package, release workflow
-thu 05-03 14:15 - 15:15 <br/> 1h fix release workflow
-thu 05-03 14:15 - 16:15 <br/> 1h fetching jokes
-fri 05-04 13:00 - 18:15 <br/> 5h15 fix workflows, app skeleton, basic routing, styling
-fri 05-04 21:15 - 21:30 <br/> 1h15 cleanup & test release
-
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.0.
+
+### Time spent
+| date | spent                                               |
+|------|-----------------------------------------------------|
+|thu 05-03 11:00 - 13:00| 2h build workflow, create package, release workflow |
+|thu 05-03 14:15 - 15:15|1h fix release workflow |
+|thu 05-03 14:15 - 16:15|1h fetching jokes|
+|fri 05-04 13:00 - 18:15|5h15 fix workflows, app skeleton, basic routing, styling|
+|fri 05-04 21:15 - 21:30|1h15 cleanup & test release|
 
 ## Development server
 

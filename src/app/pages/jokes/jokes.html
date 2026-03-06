@@ -1,0 +1,31 @@
+<h2 class="text-lg mt-5 mb-5">Jokes</h2>
+<div class="grid grid-flow-col justify-items-center">
+  <button
+    class="btn btn-sm btn-primary"
+    [attr.disabled]="fetchingJokes() ? 'disabled' : null"
+    (click)="startGettingRandomJokes()"
+  >
+    (re)start fetching jokes
+  </button>
+  <button
+    class="btn btn-sm btn-secondary"
+    [attr.disabled]="!fetchingJokes() ? 'disabled' : null"
+    (click)="stopGettingRandomJokes()"
+  >
+    stop fetching jokes
+  </button>
+</div>
+<div class="divider"></div>
+
+<div class="m-5 p-5 text-base-content">
+  @for(joke of latestJokes(); track $index) {
+    @if (joke.visibleInStream) {
+      <app-joke
+        [joke]="joke"
+      ></app-joke>
+    }
+  } @empty {
+    <p>Loading first joke...</p>
+  }
+</div>
+

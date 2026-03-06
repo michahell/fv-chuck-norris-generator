@@ -4,7 +4,7 @@ import {JokeService} from './joke-service';
 import {JokeApiResponse, JokeViewModel} from './jokes.model';
 
 export const JOKE_REFRESH_RATE_SECONDS = 2000;
-export const JOKE_LIST_SIZE = 4;
+export const JOKE_LIST_SIZE = 10;
 
 @Injectable({
   providedIn: 'root',

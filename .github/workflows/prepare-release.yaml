@@ -25,10 +25,10 @@ jobs:
           # setup local git config user and e-mail
           git config --local user.email "action@github.com"
           git config --local user.name "release workflow action"
-          # read package.json and print version
+          # read package.json, store and print version
           VERSION=$(node -p "require('./package.json').version")
-          # store in github env
           echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "The value of VERSION is $VERSION"
           # tag
           git tag -a "v${{ env.VERSION }}" -m "release v${{ env.VERSION }}"
           # push tag

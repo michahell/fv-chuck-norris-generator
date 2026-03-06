@@ -1,6 +1,7 @@
 <h2 class="text-lg mt-2 mb-2">Jokes</h2>
 <div class="grid grid-flow-col justify-items-center">
   <button
+    data-test="start-fetching-jokes"
     class="btn btn-sm btn-primary"
     [attr.disabled]="fetchingJokes() ? 'disabled' : null"
     (click)="startGettingRandomJokes()"
@@ -8,6 +9,7 @@
     (re)start fetching jokes
   </button>
   <button
+    data-test="stop-fetching-jokes"
     class="btn btn-sm btn-secondary"
     [attr.disabled]="!fetchingJokes() ? 'disabled' : null"
     (click)="stopGettingRandomJokes()"

@@ -10,26 +10,18 @@ export const API_BASE_URL = 'https://api.chucknorris.io';
 })
 export class JokeService {
   #http = inject(HttpClient);
-  #corsProxiedBaseUrl = this.#getCorsProxiedBaseUrl();
 
   /**
    * Get a random joke from the Chuck Norris Joke API
    *
    */
   getRandomJoke(): Observable<JokeApiResponse> {
-    return this.#http.get<JokeApiResponse>(`${this.#corsProxiedBaseUrl}/jokes/random`).pipe(
+    return this.#http.get<JokeApiResponse>(`${API_BASE_URL}/jokes/random`).pipe(
       map((response: JokeApiResponse) => response),
       catchError(error => {
         console.error('Error fetching joke:', error);
         throw new Error('Failed to fetch joke. Please try again.');
       })
     );
-  }
-
-  #getCorsProxiedBaseUrl(): string {
-    if (isDevMode()) {
-      return API_BASE_URL;
-    }
-    return `https://corsproxy.io/?url=${API_BASE_URL}`;
   }
 }

@@ -38,11 +38,7 @@ export class JokeFacade {
 
   // to not expose the subjects themselves, we expose only the observables of them
   latestJokes$: Observable<JokeViewModel[]> = this.#jokeListState.asObservable();
-  favourites$: Observable<JokeViewModel[]> = this.#favouriteListState.asObservable().pipe(
-    tap(list => {
-      console.log('favourites: ', list);
-    })
-  );
+  favourites$: Observable<JokeViewModel[]> = this.#favouriteListState.asObservable();
 
   startGettingRandomJokes(): void {
     this.#subscription?.unsubscribe();
